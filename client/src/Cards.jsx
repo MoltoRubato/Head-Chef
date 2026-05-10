@@ -2,7 +2,7 @@ import { SuitIcon, AbilityIcon, ChefHat, Ornament } from './Icons.jsx';
 import { DishIcon } from './DishIcons.jsx';
 import { SUITS, ROLES, ABILITIES } from './data.js';
 
-export function IngredientCard({ suit, size = 'md', faceDown = false, dim = false, onClick, selected, style = {} }) {
+export function IngredientCard({ suit, size = 'md', faceDown = false, dim = false, onClick, selected, style = {}, 'data-testid': dataTestId }) {
   const dims = {
     sm: { w: 60,  h: 90,  pad: 6,  big: 22, name: 9  },
     md: { w: 96,  h: 140, pad: 10, big: 36, name: 11 },
@@ -11,7 +11,7 @@ export function IngredientCard({ suit, size = 'md', faceDown = false, dim = fals
   const meta = SUITS[suit];
 
   if (faceDown) return (
-    <div onClick={onClick} style={{
+    <div data-testid={dataTestId} onClick={onClick} style={{
       width: dims.w, height: dims.h, borderRadius: 6,
       background: 'linear-gradient(135deg, #5a3a1f 0%, #2e1810 100%)',
       border: '1px solid #8a6a2e', position: 'relative',
@@ -26,7 +26,7 @@ export function IngredientCard({ suit, size = 'md', faceDown = false, dim = fals
   );
 
   return (
-    <div onClick={onClick} className="parchment" style={{
+    <div data-testid={dataTestId} onClick={onClick} className="parchment" style={{
       width: dims.w, height: dims.h, borderRadius: 6, padding: dims.pad,
       position: 'relative', overflow: 'hidden',
       border: `1.5px solid ${meta.color}`,

@@ -37,7 +37,7 @@ export function RoleRevealScreen({ myRole, myAbility, players, traitorCount, onC
           {revealed ? (myRole==='cook' ? 'You are loyal to the kitchen.' : 'A rival house has bought you.') : 'Lift your apron — quietly.'}
         </div>
 
-        <div onClick={() => setRevealed(true)} style={{ perspective:1200, width:300, height:420, cursor:'pointer' }}>
+        <div data-testid="role-card" onClick={() => setRevealed(true)} style={{ perspective:1200, width:300, height:420, cursor:'pointer' }}>
           <div style={{ transform: revealed ? 'rotateY(180deg)' : 'rotateY(0deg)', transition:'transform 0.8s cubic-bezier(0.4,0,0.2,1)', transformStyle:'preserve-3d', position:'relative', width:'100%', height:'100%' }}>
             <div style={{ position:'absolute', inset:0, backfaceVisibility:'hidden', WebkitBackfaceVisibility:'hidden' }}>
               <RoleCard role={myRole} size="lg" revealed={false}/>
